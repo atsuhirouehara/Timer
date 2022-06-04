@@ -2,7 +2,7 @@
 {
     internal class Timer_Data
     {
-        enum timer_data
+        enum Timer_data
         {
             SaveDateTime,
             TotalTime,

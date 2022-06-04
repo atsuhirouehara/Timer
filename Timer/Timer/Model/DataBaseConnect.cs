@@ -12,14 +12,14 @@ namespace Timer.Model
         /// <param name="time"></param>
         /// <param name="text"></param>
         /// <returns></returns>
-        public bool saveToDb(object time, string text)
+        public static bool SaveToDb(object time, string text)
         {
 
                 DateTime dt = DateTime.Now;
                 string sql_insert = "INSERT INTO Timer_Data ( SaveDateTime, TotalTime, Text) VALUES('" + dt + "','" + time + "','" + text + "')";
 
                 //DbctlClass
-                Dbctl dbctl = new Dbctl();
+                Dbctl dbctl = new();
 
                 try
                 {
@@ -71,7 +71,7 @@ namespace Timer.Model
             /// </summary>
             public void ExecuteNonQuery(string sql)
             {
-                SQLiteCommand sqlCom = new SQLiteCommand(sql, conn);
+                SQLiteCommand sqlCom = new(sql, conn);
                 sqlCom.ExecuteNonQuery();
             }
 
@@ -80,7 +80,7 @@ namespace Timer.Model
             /// </summary>
             public SQLiteDataAdapter ExecuteQueryAdapter(string sql)
             {
-                SQLiteDataAdapter Adapter = new SQLiteDataAdapter(sql, conn);
+                SQLiteDataAdapter Adapter = new(sql, conn);
                 return Adapter;
             }
 
@@ -89,7 +89,7 @@ namespace Timer.Model
             /// </summary>
             public SQLiteDataReader ExecuteQueryReader(string sql)
             {
-                SQLiteCommand sqlCom = new SQLiteCommand(sql, conn);
+                SQLiteCommand sqlCom = new(sql, conn);
                 SQLiteDataReader reader = sqlCom.ExecuteReader();
 
                 return reader;

@@ -15,6 +15,16 @@
             <RowDefinition Height="21*"/>
         </Grid.RowDefinitions>
 
+        <DockPanel Margin="0,0,-56,0">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Menu">
+                    <MenuItem Header="Graph Page"/>
+                    <MenuItem Header="Coming soon..."/>
+                    <MenuItem Header="Coming soon..."/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        
         <Label x:Name="lblTime" Content="00:00" HorizontalAlignment="Left" Height="54" Margin="37,10,0,0" VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36"/>
         <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="37,75,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click" Height="20"/>
         <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Margin="138,75,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click" Height="20"/>
