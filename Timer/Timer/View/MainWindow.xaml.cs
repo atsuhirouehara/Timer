@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
+using Timer.ViewModel;
 
 namespace Timer
 {
@@ -58,12 +59,18 @@ namespace Timer
                     TimerReset();
                     break;
 
+                case "btnSave":
+                    Save(lblTime.Content, textBox.Text);
+                    break;
+
                 default:
                     break;
             }
         }
 
-        // タイマー操作：開始
+        /// <summary>
+        /// タイマー操作：開始
+        /// </summary>
         private void TimerStart()
         {
             btnStart.IsEnabled = false;
@@ -73,7 +80,9 @@ namespace Timer
             dispatcherTimer.Start();
         }
 
-        // タイマー操作：停止
+        /// <summary>
+        /// タイマー操作：停止
+        /// </summary>
         private void TimerStop()
         {
             btnStart.IsEnabled = true;
@@ -83,10 +92,30 @@ namespace Timer
             dispatcherTimer.Stop();
         }
 
-        // タイマー操作：リセット
+        /// <summary>
+        /// タイマー操作：リセット
+        /// </summary>
         private void TimerReset()
         {
             oldtimespan = new TimeSpan();
+            lblTime.Content = "00:00:00";
+        }
+
+        /// <summary>
+        /// 保存(Save)用ボタンの機能
+        /// </summary>
+        private void Save(object time, string text)
+        {
+            TimerUsecase timerUsecase = new TimerUsecase();
+            var sendResult = timerUsecase.sendToRepository(time, text);
+
+            if(!sendResult)
+            {
+                MessageBox.Show("保存に失敗しました。");
+            }
+            
+            MessageBox.Show("保存に成功しました。");
+            textBox.Clear();
             lblTime.Content = "00:00:00";
         }
     }

@@ -20,7 +20,7 @@
         <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Margin="138,75,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click" Height="20"/>
         <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="238,75,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="20"/>
         <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="138,0,0,0" VerticalAlignment="Center" Width="74" Click="Button_Click" Height="20" Grid.Row="1"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Margin="37,108,0,10"/>
+        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="" Margin="37,108,0,10"/>
 
     </Grid>
 </Window>

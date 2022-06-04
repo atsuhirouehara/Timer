@@ -7,15 +7,5 @@ namespace Timer.Domain
     {
         
     }
-
-    
-
-
-    // 開始
-
-    // 停止
-
-    // リセット
-
 }
 
