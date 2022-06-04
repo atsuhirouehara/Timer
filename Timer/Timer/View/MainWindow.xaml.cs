@@ -19,22 +19,52 @@ namespace Timer
         {
             InitializeComponent();
 
-            
-
             // コンポーネントの状態を初期化　
             lblTime.Content = "00:00:00";
             btnStart.IsEnabled = true;
             btnStop.IsEnabled = false;
             btnReset.IsEnabled = true;
-            btnSave.IsEnabled = false;
 
             // タイマーのインスタンスを生成
             dispatcherTimer = new DispatcherTimer(DispatcherPriority.Normal);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 1); // 1秒ごとにカウント
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 1);
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+
+        }
+
+        // タイマー Tick処理
+        void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            nowtimespan = DateTime.Now.Subtract(StartTime);
+            lblTime.Content = oldtimespan.Add(nowtimespan).ToString(@"hh\:mm\:ss");
+
+        }
+
+        // ボタンクリック時の処理分岐
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Control ctrl = (Control)sender;
+            switch (ctrl.Name)
+            {
+                case "btnStart":
+                    TimerStart();
+                    break;
+
+                case "btnStop":
+                    TimerStop();
+                    break;
+
+                case "btnReset":
+                    TimerReset();
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         // タイマー操作：開始
-        void TimerStart()
+        private void TimerStart()
         {
             btnStart.IsEnabled = false;
             btnStop.IsEnabled = true;
@@ -44,7 +74,7 @@ namespace Timer
         }
 
         // タイマー操作：停止
-        void TimerStop()
+        private void TimerStop()
         {
             btnStart.IsEnabled = true;
             btnStop.IsEnabled = false;
@@ -54,35 +84,10 @@ namespace Timer
         }
 
         // タイマー操作：リセット
-        void TimerReset()
+        private void TimerReset()
         {
             oldtimespan = new TimeSpan();
             lblTime.Content = "00:00:00";
-        }
-
-        // ボタンクリック時の処理分岐
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-
-            Control ctrl = (Control)sender;
-            switch (ctrl.Name)
-            {
-                case "btnStart":
-                    mainWindow.TimerStart();
-                    break;
-
-                case "btnStop":
-                    mainWindow.TimerStop();
-                    break;
-
-                case "btnReset":
-                    mainWindow.TimerReset();
-                    break;
-
-                default:
-                    break;
-            }
         }
     }
 }
