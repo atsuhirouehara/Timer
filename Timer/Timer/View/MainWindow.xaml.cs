@@ -16,7 +16,7 @@ namespace Timer
         {
             InitializeComponent();
 
-            Uri uri = new Uri("TopPage.xaml", UriKind.Relative);
+            Uri uri = new("TopPage.xaml", UriKind.Relative);
             frame.Source = uri;
                       
         }

@@ -1,12 +1,24 @@
-﻿namespace Timer.Model
+﻿using SQLite;
+
+namespace Timer.Model
 {
-    internal class Timer_Data
+    public class Timer_Data
     {
-        enum Timer_data
-        {
-            SaveDateTime,
-            TotalTime,
-            Text
-        }
+
+        /// <summary>
+        /// 保存日時
+        /// </summary>
+        [PrimaryKey]
+        public string? SaveDateTime { get; set; }
+
+        /// <summary>
+        /// 学習時間
+        /// </summary>
+        public string? TotalTime { get; set; }
+
+        /// <summary>
+        /// コメント
+        /// </summary>
+        public string? Text { get; set; }
     }
 }
