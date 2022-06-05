@@ -24,5 +24,19 @@ namespace Timer.View
         {
             InitializeComponent();
         }
+
+        // トップページへ
+        private void TopPage_Click(object sender, RoutedEventArgs e)
+        {
+            var topPage = new TopPage();
+            NavigationService.Navigate(topPage);
+        }
+
+        // 履歴ページへ
+        private void HistoryPage_Click(object sender, RoutedEventArgs e)
+        {
+            var historyPage = new HistoryPage();
+            NavigationService.Navigate(historyPage);
+        }
     }
 }

@@ -351,3 +351,6 @@ MigrationBackup/
 
 # DataBase
 Timer.db
+
+# Inifile
+*.ini

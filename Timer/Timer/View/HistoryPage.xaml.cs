@@ -1,28 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Timer.View
 {
     /// <summary>
     /// HistoryPage.xaml の相互作用ロジック
     /// </summary>
-    //public partial class HistoryPage : Page
-    //{
-    //    public HistoryPage()
-    //    {
-    //        InitializeComponent();
-    //    }
-    //}
+    public partial class HistoryPage : Page
+    {
+        public HistoryPage()
+        {
+            InitializeComponent();
+        }
+
+        // トップページへ
+        private void TopPage_Click(object sender, RoutedEventArgs e)
+        {
+            var topPage = new TopPage();
+            NavigationService.Navigate(topPage);
+        }
+
+        // 比較ページへ
+        private void ComparePage_Click(object sender, RoutedEventArgs e)
+        {
+            var comparePage = new ComparePage();
+            NavigationService.Navigate(comparePage);
+        }
+    }
 }

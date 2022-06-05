@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Data.SQLite;
+using System.Text;
 using System.Windows;
+using System.Runtime.InteropServices;
 
 namespace Timer.Model
 {
     public class DataBaseConnect
     {
+        
+
         /// <summary>
         /// データベースへ保存するためのメソッド
         /// </summary>
@@ -15,35 +19,48 @@ namespace Timer.Model
         public static bool SaveToDb(object time, string text)
         {
 
-                DateTime dt = DateTime.Now;
-                string sql_insert = "INSERT INTO Timer_Data ( SaveDateTime, TotalTime, Text) VALUES('" + dt + "','" + time + "','" + text + "')";
+            DateTime dt = DateTime.Now;
+            string sql_insert = "INSERT INTO Timer_Data ( SaveDateTime, TotalTime, Text) VALUES('" + dt + "','" + time + "','" + text + "')";
 
-                //DbctlClass
-                Dbctl dbctl = new();
+            //DbctlClass
+            Dbctl dbctl = new();
 
-                try
-                {
-                    dbctl.ExecuteNonQuery(sql_insert);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                    dbctl.Close();
-                    return false;
-                }
-                finally
-                {
-                    dbctl.Close();
-                }
+            try
+            {
+                dbctl.ExecuteNonQuery(sql_insert);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                dbctl.Close();
+                return false;
+            }
+            finally
+            {
+                dbctl.Close();
+            }
 
             return true;
         }
+
+        
+
+                               
+
 
         /// <summary>
         /// データベースとやりとりするためのクラス
         /// </summary>
         class Dbctl
         {
+
+            // INIファイルを読み込む準備
+            // Win32APIの GetPrivateProfileString を使う宣言
+            [DllImport("KERNEL32.DLL", CharSet = CharSet.Unicode)]
+            public static extern uint GetPrivateProfileString(string lpAppName, string lpKeyName, string lpDefault, StringBuilder lpReturnedString, uint nSize, string lpFileName);
+            // iniファイル名を決める（実行ファイルが置かれたフォルダと同じ場所）
+            readonly string iniFileName = AppDomain.CurrentDomain.BaseDirectory + "information.ini";
+
             private readonly SQLiteConnection conn;
 
             /// <summary>
@@ -51,11 +68,17 @@ namespace Timer.Model
             /// </summary>
             public Dbctl()
             {
-                string conn_str = "Data Source=C:/Users/spide/OneDrive/デスクトップ/Project/Timer/Timer.db;Version=3;";
+                // iniファイルから文字列を取得
+                StringBuilder iniFilePath = new(1024);
+                GetPrivateProfileString("DataBase_info", "SQLite_Path", "SQLiteFilePathが設定されていません", iniFilePath, Convert.ToUInt32(iniFilePath.Capacity), iniFileName);
+                
+                string conn_str = "Data Source=" + iniFilePath.ToString() + ";Version=3;";
                 conn = new SQLiteConnection(conn_str);
 
                 conn.Open();
             }
+
+            
 
             /// <summary>
             /// DBを閉じる処理

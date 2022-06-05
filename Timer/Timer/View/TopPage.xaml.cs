@@ -121,6 +121,20 @@ namespace Timer.View
             textBox.Clear();
             TimerReset();
         }
+
+        // 比較ページへ
+        private void ComparePage_Click(object sender, RoutedEventArgs e)
+        {
+            var comparePage = new ComparePage();
+            NavigationService.Navigate(comparePage);
+        }
+
+        // 履歴ページへ
+        private void HistoryPage_Click(object sender, RoutedEventArgs e)
+        {
+            var historyPage = new HistoryPage();
+            NavigationService.Navigate(historyPage);
+        }
     }
 
     
