@@ -51,7 +51,7 @@ namespace Timer.Model
             /// </summary>
             public Dbctl()
             {
-                string conn_str = "Data Source=C:/Users/user/Desktop/MyProject/Timer/Timer.db;Version=3;";
+                string conn_str = "Data Source=C:/Users/spide/OneDrive/デスクトップ/Project/Timer/Timer.db;Version=3;";
                 conn = new SQLiteConnection(conn_str);
 
                 conn.Open();

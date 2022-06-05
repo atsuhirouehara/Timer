@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Timer.View
 {
     /// <summary>
-    /// GraphPage.xaml の相互作用ロジック
+    /// HistoryPage.xaml の相互作用ロジック
     /// </summary>
-    //public partial class GraphPage : Page
+    //public partial class HistoryPage : Page
     //{
-    //    public GraphPage()
+    //    public HistoryPage()
     //    {
     //        InitializeComponent();
     //    }

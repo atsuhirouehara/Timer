@@ -5,32 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Timer" Height="230" Width="369" ResizeMode="CanMinimize">
+ 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="155"/>
-            <RowDefinition Height="38*"/>
-            <RowDefinition Height="21*"/>
-        </Grid.RowDefinitions>
-
-        <DockPanel Margin="0,0,-56,0">
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Menu">
-                    <MenuItem Header="Graph Page" /> <!--Click="GraphPage_Click"-->
-                    <MenuItem Header="Coming soon..."/>
-                    <MenuItem Header="Coming soon..."/>
-                </MenuItem>
-            </Menu>
-        </DockPanel>
-        
-        <Label x:Name="lblTime" Content="00:00" HorizontalAlignment="Left" Height="54" Margin="37,10,0,0" VerticalAlignment="Top" Width="276" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36"/>
-        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="37,75,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click" Height="20"/>
-        <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Margin="138,75,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click" Height="20"/>
-        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="238,75,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="20"/>
-        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="138,0,0,0" VerticalAlignment="Center" Width="74" Click="Button_Click" Height="20" Grid.Row="1"/>
-        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="" Margin="37,108,0,10"/>
-
+        <Frame Name="frame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
