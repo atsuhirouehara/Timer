@@ -18,11 +18,11 @@ namespace Timer.View
     /// <summary>
     /// GraphPage.xaml の相互作用ロジック
     /// </summary>
-    public partial class GraphPage : Page
-    {
-        public GraphPage()
-        {
-            InitializeComponent();
-        }
-    }
+    //public partial class GraphPage : Page
+    //{
+    //    public GraphPage()
+    //    {
+    //        InitializeComponent();
+    //    }
+    //}
 }

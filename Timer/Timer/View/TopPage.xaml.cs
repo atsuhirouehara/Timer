@@ -18,11 +18,11 @@ namespace Timer.View
     /// <summary>
     /// TopPage.xaml の相互作用ロジック
     /// </summary>
-    public partial class TopPage : Page
-    {
-        public TopPage()
-        {
-            InitializeComponent();
-        }
-    }
+    //public partial class TopPage : Page
+    //{
+    //    public TopPage()
+    //    {
+    //        InitializeComponent();
+    //    }
+    //}
 }
