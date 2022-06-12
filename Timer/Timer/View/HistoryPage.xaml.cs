@@ -1,7 +1,8 @@
-﻿
+﻿using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Timer.ViewModel;
 
 namespace Timer.View
 {
@@ -29,19 +30,13 @@ namespace Timer.View
             NavigationService.Navigate(comparePage);
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        // 取得ボタン押下時の処理
+        private void GetHistory_Button(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void DataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
+            TimerUsecase timerUsecase = new();
+            DataTable data = timerUsecase.SendToRepository(fromDate.ToString(), untilDate.ToString());
+            DataGrid.DataContext = data;
         }
     }
 }

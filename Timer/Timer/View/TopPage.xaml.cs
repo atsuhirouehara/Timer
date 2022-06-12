@@ -12,6 +12,7 @@ namespace Timer.View
     /// </summary>
     public partial class TopPage : Page
     {
+
         readonly DispatcherTimer dispatcherTimer;   // タイマーオブジェクト
         DateTime StartTime;                         // カウント開始時刻
         TimeSpan nowtimespan;                       // Startボタンが押されてから現在までの経過時間
@@ -21,6 +22,7 @@ namespace Timer.View
         {
             InitializeComponent();
 
+            
             // コンポーネントの状態を初期化　
             lblTime.Content = "00:00:00";
             btnStart.IsEnabled = true;
@@ -109,17 +111,19 @@ namespace Timer.View
         /// </summary>
         private void Save(object time, string text)
         {
-
-            var sendResult = TimerUsecase.SendToRepository(time, text);
+            TimerUsecase timerUsecase = new TimerUsecase();
+            var sendResult = timerUsecase.SendToRepository(time, text);
 
             if (!sendResult)
             {
                 MessageBox.Show("保存に失敗しました。");
             }
-
-            MessageBox.Show("保存に成功しました。");
-            textBox.Clear();
-            TimerReset();
+            else
+            {
+                MessageBox.Show("保存に成功しました。");
+                textBox.Clear();
+                TimerReset();
+            }
         }
 
         // 比較ページへ
