@@ -58,7 +58,7 @@ namespace Timer.Model
             try
             {
                 // 接続先を指定
-                using (var conn = new SQLiteConnection("Data Source=D:/SQLite/Timer_Data/Timer.db;Version=3;"))
+                using (var conn = new SQLiteConnection("Data Source=C:/SQLite/TImer_Data/Timer.db;Version=3;"))
                 using (var command = conn.CreateCommand())
                 {
                     // 接続
@@ -110,7 +110,7 @@ namespace Timer.Model
             try
             {
                 // 接続先を指定
-                using (var conn = new SQLiteConnection("Data Source=D:/SQLite/Timer_Data/Timer.db;Version=3;"))
+                using (var conn = new SQLiteConnection("Data Source=C:/SQLite/TImer_Data/Timer.db;Version=3;"))
                 using (var command = conn.CreateCommand())
                 {
                     // 接続

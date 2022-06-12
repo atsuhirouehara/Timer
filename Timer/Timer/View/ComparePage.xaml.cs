@@ -38,5 +38,10 @@ namespace Timer.View
             var historyPage = new HistoryPage();
             NavigationService.Navigate(historyPage);
         }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
